@@ -16,5 +16,15 @@ public class Main {
         LightCar bmwZ8 = new LightCar("BMW", "Z8", 5.0f);
         LightCar kiaSportage = new LightCar("Kia", "Sportage 4th generation", 2.4F);
 
+        Driver<LightCar> ivan = new Driver<>("Ivanov Ivan Ivanovich", "B", 1, ladaGranta);
+        Driver<Bus> sergey = new Driver<>("Petrov Sergey Mihailovich", "D", 8, lias);
+        Driver<FreightCar> fedor = new Driver<>("Sidorov Fedor Evgenievich", "C", 4, kamaz);
+
+        raceTeam(ivan);
+    }
+
+    public static void raceTeam(Driver driver) {
+       System.out.println("Водитель " + driver.getFullName() + " управляет автомобилем " + driver.getCar().getBrand() +
+               " " + driver.getCar().getModel() + " и будет участвовать в заезде." );
     }
 }
