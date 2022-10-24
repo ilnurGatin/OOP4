@@ -16,19 +16,21 @@ public class FreightCar extends Transport implements Competing {
         public String getCarryСapacityDescription() {
             return carryСapacityDescription;
         }
-
-        public static void determineСarryСapacity(СarryСapacity carryCapacity) {
-            if (carryCapacity == null) {
-                System.out.println("Данных недостаточно");
-            } else {
-                System.out.println("Тип грузоподъемности авто: " + carryCapacity.getCarryСapacityDescription());
-            }
-        }
-
     }
 
-    public FreightCar(String brand, String model, float engineVolume) {
+    private СarryСapacity carryCapacity;
+
+    public FreightCar(String brand, String model, float engineVolume, СarryСapacity carryCapacity) {
         super(brand, model, engineVolume);
+        this.carryCapacity = carryCapacity;
+    }
+
+    public СarryСapacity getCarryCapacity() {
+        return carryCapacity;
+    }
+
+    public void setCarryCapacity(СarryСapacity carryCapacity) {
+        this.carryCapacity = carryCapacity;
     }
 
     public void startMoving() {
@@ -37,6 +39,15 @@ public class FreightCar extends Transport implements Competing {
 
     public void stopMoving() {
         System.out.println("FreightCar stop moving");
+    }
+
+    @Override
+    public void printType() {
+        if (carryCapacity == null) {
+            System.out.println("Данных недостаточно");
+        } else {
+            System.out.println("Тип грузоподъемности авто: " + carryCapacity.getCarryСapacityDescription());
+        }
     }
 
     @Override

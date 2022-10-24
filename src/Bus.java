@@ -16,22 +16,24 @@ public class Bus extends Transport implements Competing {
         public String getCapacityTypeDescription() {
             return capacityTypeDescription;
         }
-
-        public static void determineCapacityType(CapacityType capacityType) {
-            if (capacityType == null) {
-                System.out.println("Данных недостаточно");
-            } else {
-                System.out.println("Тип вместимости автобуса: " + capacityType.getCapacityTypeDescription());
-            }
-        }
-
     }
 
+    private CapacityType capacityType;
 
     public Bus(String brand,
                String model,
-               float engineVolume) {
+               float engineVolume,
+               CapacityType capacityType) {
         super(brand, model, engineVolume);
+        this.capacityType = capacityType;
+    }
+
+    public CapacityType getCapacityType() {
+        return capacityType;
+    }
+
+    public void setCapacityType(CapacityType capacityType) {
+        this.capacityType = capacityType;
     }
 
     public void startMoving() {
@@ -40,6 +42,15 @@ public class Bus extends Transport implements Competing {
 
     public void stopMoving() {
         System.out.println("Bus stops moving");
+    }
+
+    @Override
+    public void printType() {
+        if (capacityType == null) {
+            System.out.println("Данных недостаточно");
+        } else {
+            System.out.println("Тип вместимости автобуса: " + capacityType.getCapacityTypeDescription());
+        }
     }
 
     @Override
