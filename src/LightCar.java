@@ -1,5 +1,35 @@
 public class LightCar extends Transport implements Competing {
 
+    public enum BodyType {
+        SEDAN("Sedan"),
+        HATCHBACK("Hatchback"),
+        COUPE("Coupe"),
+        UNIVERSAL("Universal"),
+        SUV("SUV"),
+        CROSSOVER("Crossover"),
+        PICKUP("Pickup"),
+        VAN("Van"),
+        MINIVAN("Minivan");
+
+        private final String bodyTypeTitle;
+
+        BodyType(String bodyTypeTitle) {
+            this.bodyTypeTitle = bodyTypeTitle;
+        }
+
+        public String getBodyTypeTitle() {
+            return bodyTypeTitle;
+        }
+
+        public static void determineBodyType(BodyType bodyType) {
+            if (bodyType == null) {
+                System.out.println("Данных недостаточно");
+            } else {
+                System.out.println("Кузов автомобиля: " + bodyType.getBodyTypeTitle());
+            }
+        }
+    }
+
     public LightCar(String brand, String model, float engineVolume) {
         super(brand, model, engineVolume);
     }
