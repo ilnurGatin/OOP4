@@ -1,7 +1,40 @@
 public class LightCar extends Transport implements Competing {
 
-    public LightCar(String brand, String model, float engineVolume) {
+    public enum BodyType {
+        SEDAN("Sedan"),
+        HATCHBACK("Hatchback"),
+        COUPE("Coupe"),
+        UNIVERSAL("Universal"),
+        SUV("SUV"),
+        CROSSOVER("Crossover"),
+        PICKUP("Pickup"),
+        VAN("Van"),
+        MINIVAN("Minivan");
+
+        private final String bodyTypeTitle;
+
+        BodyType(String bodyTypeTitle) {
+            this.bodyTypeTitle = bodyTypeTitle;
+        }
+
+        public String getBodyTypeTitle() {
+            return bodyTypeTitle;
+        }
+    }
+
+    private BodyType bodyType;
+
+    public LightCar(String brand, String model, float engineVolume, BodyType bodyType) {
         super(brand, model, engineVolume);
+        this.bodyType = bodyType;
+    }
+
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
     }
 
     public void startMoving() {
@@ -10,6 +43,15 @@ public class LightCar extends Transport implements Competing {
 
     public void stopMoving() {
         System.out.println("Car stoped moving");
+    }
+
+    @Override
+    public void printType() {
+        if (bodyType == null) {
+            System.out.println("Данных недостаточно");
+        } else {
+            System.out.println("Кузов автомобиля: " + bodyType.getBodyTypeTitle());
+        }
     }
 
     @Override
@@ -26,4 +68,5 @@ public class LightCar extends Transport implements Competing {
     public void maxSpeed(int speed) {
         System.out.println("Максимальная скорость " + speed + " км/ч!");
     }
+
 }
