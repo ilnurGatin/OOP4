@@ -16,9 +16,9 @@ public class Main {
         LightCar bmwZ8 = new LightCar("BMW", "Z8", 5.0f, LightCar.BodyType.COUPE);
         LightCar kiaSportage = new LightCar("Kia", "Sportage 4th generation", 2.4F, null);
 
-        Driver<LightCar> ivan = new Driver<>("Ivanov Ivan Ivanovich", "B", 1, ladaGranta);
-        Driver<Bus> sergey = new Driver<>("Petrov Sergey Mihailovich", "D", 8, lias);
-        Driver<FreightCar> fedor = new Driver<>("Sidorov Fedor Evgenievich", "C", 4, kamaz);
+        DriverB ivan = new DriverB("Ivanov Ivan Ivanovich", 1, ladaGranta);
+        DriverD sergey = new DriverD("Petrov Sergey Mihailovich", 8, lias);
+        DriverC fedor = new DriverC("Sidorov Fedor Evgenievich", 4, kamaz);
 
         raceTeam(ivan);
         carType(audiA8);

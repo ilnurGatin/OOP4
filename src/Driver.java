@@ -1,4 +1,4 @@
-public class Driver <A extends Transport> {
+public abstract class Driver <A extends Transport> {
 
     private String fullName;
     private String typeOfDriverLicense;
@@ -6,10 +6,16 @@ public class Driver <A extends Transport> {
     private A car;
 
 
-    public Driver(String fullName, String typeOfDriverLicense, int yearsOfExperience, A car) {
-        setFullName(fullName);
-        setTypeOfDriverLicense(typeOfDriverLicense);
-        setYearsOfExperience(yearsOfExperience);
+    public Driver(String fullName,
+                  String typeOfDriverLicense,
+                  int yearsOfExperience,
+                  A car) {
+        //setFullName(fullName);
+        //setTypeOfDriverLicense(typeOfDriverLicense);
+        //setYearsOfExperience(yearsOfExperience);
+        this.fullName = fullName;
+        this.typeOfDriverLicense = typeOfDriverLicense;
+        this.yearsOfExperience = yearsOfExperience;
         this.car = car;
     }
 
@@ -17,29 +23,29 @@ public class Driver <A extends Transport> {
         return typeOfDriverLicense;
     }
 
-    public void setTypeOfDriverLicense(String typeOfDriverLicense) {
-        if (typeOfDriverLicense == null || typeOfDriverLicense.isEmpty() || typeOfDriverLicense.isBlank()) {
-            throw new IllegalArgumentException("Необходимо указать тип прав!");
-        } else {
-            this.typeOfDriverLicense = typeOfDriverLicense;
-        }
-    }
+//    public void setTypeOfDriverLicense(String typeOfDriverLicense) {
+//        if (typeOfDriverLicense == null || typeOfDriverLicense.isEmpty() || typeOfDriverLicense.isBlank()) {
+//            throw new IllegalArgumentException("Необходимо указать тип прав!");
+//        } else {
+//            this.typeOfDriverLicense = typeOfDriverLicense;
+//        }
+//    }
         public String getFullName () {
             return fullName;
         }
 
-        public void setFullName (String fullName){
-            this.fullName = ValidationUtils.validOrDefault(fullName, "Ivanov Ivan Ivanovich");
-        }
+//        public void setFullName (String fullName){
+//            this.fullName = ValidationUtils.validOrDefault(fullName, "Ivanov Ivan Ivanovich");
+//        }
 
 
         public int getYearsOfExperience () {
             return yearsOfExperience;
         }
 
-        public void setYearsOfExperience ( int yearsOfExperience){
-            this.yearsOfExperience = Math.max(yearsOfExperience, 0);
-        }
+//        public void setYearsOfExperience ( int yearsOfExperience){
+//            this.yearsOfExperience = Math.max(yearsOfExperience, 0);
+//        }
 
         public A getCar () {
             return car;
@@ -58,7 +64,7 @@ public class Driver <A extends Transport> {
         }
 
         //@Override
-        //public String toString() {
-        //    return "Водитель " + fullName + " управляет автомобилем " + this.car.getBrand() + this.car.getModel() + " и будет участвовать в заезде";
-        //}
+        public String toString() {
+            return "Водитель " + this.fullName + " управляет автомобилем " + this.car.getBrand() + this.car.getModel() + " и будет участвовать в заезде";
+        }
     }
