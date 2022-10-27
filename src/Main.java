@@ -22,6 +22,12 @@ public class Main {
 
         raceTeam(ivan);
         carType(audiA8);
+
+        diagnostic(
+                ikarus, pasik, lias, schoolBus,
+                ladaGranta, audiA8, bmwZ8, kiaSportage,
+                kamaz, maz, scania, belaz
+        );
     }
 
     public static void raceTeam(Driver driver) {
@@ -32,5 +38,21 @@ public class Main {
 
     public static void carType(Transport transport) {
         transport.printType();
+    }
+
+    public static void diagnostic(Transport... transports) {
+        for (Transport transport : transports) {
+            try {
+                diagnostTransport(transport);
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    public static void diagnostTransport(Transport transport) {
+        if (!transport.passDiagnostic()) {
+            throw new RuntimeException("Автомобиль " + transport.getBrand() + " " + transport.getModel() + " не прошел диагностику");
+        }
     }
 }

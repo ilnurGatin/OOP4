@@ -51,6 +51,15 @@ public class FreightCar extends Transport implements Competing {
     }
 
     @Override
+    public boolean passDiagnostic() {
+        if (super.getEngineVolume() < 10.0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Заправляем бак, если сможем - поменяем одно колесо на выбор!");
     }

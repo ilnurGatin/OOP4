@@ -55,6 +55,15 @@ public class LightCar extends Transport implements Competing {
     }
 
     @Override
+    public boolean passDiagnostic() {
+        if (super.getEngineVolume() > 3.0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Меняем колеса, заправляем бак");
     }
