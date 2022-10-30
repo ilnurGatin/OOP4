@@ -123,12 +123,12 @@ public class Main {
         transportList.add(bmwZ8);
         transportList.add(kiaSportage);
 
-        Queue<Transport> transportQueue = new LinkedList<>();
-        transportQueue.offer(kiaSportage);
-        transportQueue.offer(ladaGranta);
-        transportQueue.offer(audiA8);
+        ServiceStation station = new ServiceStation();
 
-        transportQueue.poll();
+        station.addTransport(kiaSportage);
+        station.addTransport(ladaGranta);
+        station.addTransport(audiA8);
+        station.runDiagnostic();
 
     }
 
