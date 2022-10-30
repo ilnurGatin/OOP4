@@ -1,4 +1,5 @@
-import java.awt.geom.Dimension2D;
+
+import java.util.List;
 
 public class FreightCar extends Transport implements Competing {
 
@@ -20,8 +21,9 @@ public class FreightCar extends Transport implements Competing {
 
     private СarryСapacity carryCapacity;
 
-    public FreightCar(String brand, String model, float engineVolume, СarryСapacity carryCapacity) {
-        super(brand, model, engineVolume);
+    public FreightCar(String brand, String model, float engineVolume, СarryСapacity carryCapacity,
+                      List<Sponsor> sponsorList, List<Mechanic> mechanics) {
+        super(brand, model, engineVolume, sponsorList, mechanics);
         this.carryCapacity = carryCapacity;
     }
 
@@ -73,4 +75,5 @@ public class FreightCar extends Transport implements Competing {
     public void maxSpeed(int speed) {
         System.out.println("Максимальная скорость " + speed + " км/ч");
     }
+
 }
