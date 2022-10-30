@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bus extends Transport implements Competing {
 
     public enum CapacityType {
@@ -18,15 +21,18 @@ public class Bus extends Transport implements Competing {
         }
     }
 
+
+
     private CapacityType capacityType;
 
     public Bus(String brand,
                String model,
                float engineVolume,
-               CapacityType capacityType) {
-        super(brand, model, engineVolume);
+               CapacityType capacityType, List<Sponsor> sponsorList, List<Mechanic> mechanics) {
+        super(brand, model, engineVolume, sponsorList, mechanics);
         this.capacityType = capacityType;
     }
+
 
     public CapacityType getCapacityType() {
         return capacityType;
@@ -55,7 +61,7 @@ public class Bus extends Transport implements Competing {
 
     @Override
     public boolean passDiagnostic() {
-        System.out.printf("Автобус %s $s в диагностике не нуждается \n", super.getBrand(), super.getModel());
+        System.out.printf("Автобус %s %s в диагностике не нуждается \n", super.getBrand(), super.getModel());
         return true;
     }
 
@@ -73,4 +79,5 @@ public class Bus extends Transport implements Competing {
     public void maxSpeed(int speed) {
         System.out.println("Максимальная скорость " + speed + " км/ч");
     }
+
 }

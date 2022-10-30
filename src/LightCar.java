@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class LightCar extends Transport implements Competing {
 
     public enum BodyType {
@@ -24,8 +26,8 @@ public class LightCar extends Transport implements Competing {
 
     private BodyType bodyType;
 
-    public LightCar(String brand, String model, float engineVolume, BodyType bodyType) {
-        super(brand, model, engineVolume);
+    public LightCar(String brand, String model, float engineVolume, BodyType bodyType, List sponsorList, List<Mechanic> mechanics) {
+        super(brand, model, engineVolume, sponsorList, mechanics);
         this.bodyType = bodyType;
     }
 
