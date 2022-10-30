@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
@@ -121,6 +123,13 @@ public class Main {
         transportList.add(bmwZ8);
         transportList.add(kiaSportage);
 
+        Queue<Transport> transportQueue = new LinkedList<>();
+        transportQueue.offer(kiaSportage);
+        transportQueue.offer(ladaGranta);
+        transportQueue.offer(audiA8);
+
+        transportQueue.poll();
+
     }
 
     public static void raceTeam(Driver driver) {
@@ -177,6 +186,7 @@ public class Main {
         }
         return mechanicName;
     }
+
 }
 
 
