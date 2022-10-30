@@ -129,7 +129,6 @@ public class Main {
         station.addTransport(ladaGranta);
         station.addTransport(audiA8);
         station.runDiagnostic();
-
     }
 
     public static void raceTeam(Driver driver) {
