@@ -1,8 +1,6 @@
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.sql.SQLOutput;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,46 +9,46 @@ public class Main {
         Sponsor continental = new Sponsor("Continental", 5_000_000);
         Sponsor yokohama = new Sponsor("Yorkohama", 1_500_00);
 
-        List<Sponsor> sponsorsForIkarus = new ArrayList<>();
+        Set<Sponsor> sponsorsForIkarus = new HashSet<>();
         sponsorsForIkarus.add(cocaCola);
 
-        List<Sponsor> sponsorsForPasic = new ArrayList<>();
+        Set<Sponsor> sponsorsForPasic = new HashSet<>();
         sponsorsForPasic.add(cocaCola);
 
-        List<Sponsor> sponsorsForLias = new ArrayList<>();
+        Set<Sponsor> sponsorsForLias = new HashSet<>();
         sponsorsForLias.add(cocaCola);
 
-        List<Sponsor> sponsorsForLadaGranta = new ArrayList<>();
+        Set<Sponsor> sponsorsForLadaGranta = new HashSet<>();
         sponsorsForLadaGranta.add(cocaCola);
 
-        List<Sponsor> sponsorsForSchoolBus = new ArrayList<>();
+        Set<Sponsor> sponsorsForSchoolBus = new HashSet<>();
         sponsorsForSchoolBus.add(cocaCola);
 
-        List<Sponsor> sponsorsForKamaz = new ArrayList<>();
+        Set<Sponsor> sponsorsForKamaz = new HashSet<>();
         sponsorsForKamaz.add(cocaCola);
 
-        List<Sponsor> sponsorsForMaz = new ArrayList<>();
+        Set<Sponsor> sponsorsForMaz = new HashSet<>();
         sponsorsForMaz.add(cocaCola);
 
-        List<Sponsor> sponsorsForScania = new ArrayList<>();
+        Set<Sponsor> sponsorsForScania = new HashSet<>();
         sponsorsForScania.add(cocaCola);
 
-        List<Sponsor> sponsorsForBelaz = new ArrayList<>();
+        Set<Sponsor> sponsorsForBelaz = new HashSet<>();
         sponsorsForBelaz.add(cocaCola);
 
-        List<Sponsor> sponsorsForAudi = new ArrayList<>();
+        Set<Sponsor> sponsorsForAudi = new HashSet<>();
         sponsorsForIkarus.add(cocaCola);
 
-        List<Sponsor> sponsorsForBMW = new ArrayList<>();
+        Set<Sponsor> sponsorsForBMW = new HashSet<>();
         sponsorsForIkarus.add(cocaCola);
 
-        List<Sponsor> sponsorsForKia = new ArrayList<>();
+        Set<Sponsor> sponsorsForKia = new HashSet<>();
         sponsorsForIkarus.add(cocaCola);
 
         Mechanic sergeeich = new Mechanic("Sergeevich", "Рога и копыта", true, true, true);
         Mechanic sanSanich = new Mechanic("Alexander Alexandrovich", "Too fast, too furious", true, true, true);
 
-        List<Mechanic> mechanics = new ArrayList<>();
+        Set<Mechanic> mechanics = new HashSet<>();
         mechanics.add(sergeeich);
         mechanics.add(sanSanich);
 
@@ -76,22 +74,22 @@ public class Main {
         DriverD sergey = new DriverD("Petrov Sergey Mihailovich", 8, lias);
         DriverD petrovich = new DriverD("Петрович", 5, ikarus);
 
-        List<Transport> transportListForCocaCola = new ArrayList<>();
+        Set<Transport> transportListForCocaCola = new HashSet<>();
         transportListForCocaCola.add(ladaGranta);
         transportListForCocaCola.add(kamaz);
         transportListForCocaCola.add(lias);
         transportListForCocaCola.add(kiaSportage);
         transportListForCocaCola.add(ikarus);
 
-        List<Transport> transportListForContinental = new ArrayList<>();
+        Set<Transport> transportListForContinental = new HashSet<>();
         transportListForContinental.add(audiA8);
         transportListForContinental.add(maz);
 
-        List<Transport> transportListForYokohama = new ArrayList<>();
+        Set<Transport> transportListForYokohama = new HashSet<>();
         transportListForYokohama.add(kiaSportage);
         transportListForYokohama.add(schoolBus);
 
-        List<Sponsor> sponsorsList = new ArrayList<>();
+        Set<Sponsor> sponsorsList = new HashSet<>();
         sponsorsList.add(cocaCola);
         sponsorsList.add(continental);
         sponsorsList.add(yokohama);
@@ -109,7 +107,7 @@ public class Main {
                 kamaz, maz, scania, belaz
         );
 
-        List<Transport> transportList = new ArrayList<>();
+        Set<Transport> transportList = new HashSet<>();
         transportList.add(ikarus);
         transportList.add(lias);
         transportList.add(pasik);
@@ -133,8 +131,7 @@ public class Main {
 
     public static void raceTeam(Driver driver) {
         System.out.println("Водитель " + driver.getFullName() + " управляет автомобилем " + driver.getCar().getBrand() +
-                " " + driver.getCar().getModel() + " и будет участвовать в заезде. Спонсоры команды: " + getSponsorsName(driver.getCar().getSponsorList()) +
-                ". Механики: " + getMechanicsName(driver.getCar().getMechanics()));
+                " " + driver.getCar().getModel() + " и будет участвовать в заезде.");
     }
 
     public static void carType(Transport transport) {
@@ -157,34 +154,34 @@ public class Main {
         }
     }
 
-    public static String getSponsorsName(List list) {
-        String sponsorsNames = "";
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) != null && i == list.size() - 1) {
-                Sponsor sponsor = (Sponsor) list.get(i);
-                sponsorsNames += sponsor.getName();
-            } else if (list.get(i) != null) {
-                Sponsor sponsor = (Sponsor) list.get(i);
-                sponsorsNames += sponsor.getName() + ", ";
-            }
-
-        }
-        return sponsorsNames;
-    }
-    public static String getMechanicsName(List list) {
-        String mechanicName = "";
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) != null && i == list.size() - 1) {
-                Mechanic mechanic = (Mechanic) list.get(i);
-                mechanicName += mechanic.getFullName();
-            } else if (list.get(i) != null) {
-                Mechanic mechanic = (Mechanic) list.get(i);
-                mechanicName += mechanic.getFullName() + ", ";
-            }
-
-        }
-        return mechanicName;
-    }
+//    public static String getSponsorsName(Set list) {
+//        String sponsorsNames = "";
+//        for (int i = 0; i < list.size(); i++) {
+//            if (list.get(i) != null && i == list.size() - 1) {
+//                Sponsor sponsor = (Sponsor) list.get(i);
+//                sponsorsNames += sponsor.getName();
+//            } else if (list.get(i) != null) {
+//                Sponsor sponsor = (Sponsor) list.get(i);
+//                sponsorsNames += sponsor.getName() + ", ";
+//            }
+//
+//        }
+//        return sponsorsNames;
+//    }
+//    public static String getMechanicsName(Set list) {
+//        String mechanicName = "";
+//        for (int i = 0; i < list.size(); i++) {
+//            if (list.get(i) != null && i == list.size() - 1) {
+//                Mechanic mechanic = (Mechanic) list.get(i);
+//                mechanicName += mechanic.getFullName();
+//            } else if (list.get(i) != null) {
+//                Mechanic mechanic = (Mechanic) list.get(i);
+//                mechanicName += mechanic.getFullName() + ", ";
+//            }
+//
+//        }
+//        return mechanicName;
+//    }
 
 }
 

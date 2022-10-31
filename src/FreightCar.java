@@ -1,5 +1,6 @@
 
 import java.util.List;
+import java.util.Set;
 
 public class FreightCar extends Transport implements Competing {
 
@@ -22,7 +23,7 @@ public class FreightCar extends Transport implements Competing {
     private СarryСapacity carryCapacity;
 
     public FreightCar(String brand, String model, float engineVolume, СarryСapacity carryCapacity,
-                      List<Sponsor> sponsorList, List<Mechanic> mechanics) {
+                      Set<Sponsor> sponsorList, Set<Mechanic> mechanics) {
         super(brand, model, engineVolume, sponsorList, mechanics);
         this.carryCapacity = carryCapacity;
     }

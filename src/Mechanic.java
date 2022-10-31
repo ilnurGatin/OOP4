@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Objects;
 
 public class Mechanic {
 
@@ -43,6 +44,19 @@ public class Mechanic {
 
     public void fixTransport(Transport transport) {
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanic mechanic = (Mechanic) o;
+        return Objects.equals(fullName, mechanic.fullName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName);
     }
 
     @Override

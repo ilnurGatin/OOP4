@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Bus extends Transport implements Competing {
 
@@ -28,7 +29,7 @@ public class Bus extends Transport implements Competing {
     public Bus(String brand,
                String model,
                float engineVolume,
-               CapacityType capacityType, List<Sponsor> sponsorList, List<Mechanic> mechanics) {
+               CapacityType capacityType, Set<Sponsor> sponsorList, Set<Mechanic> mechanics) {
         super(brand, model, engineVolume, sponsorList, mechanics);
         this.capacityType = capacityType;
     }
