@@ -95,13 +95,13 @@ public class Main {
         sponsorsList.add(yokohama);
 
         //Инфо по команде
-        raceTeam(ivan);
+        Transport.raceTeam(ivan);
 
         //Тип Кузова:
         System.out.printf("Тип кузова для %s %s", audiA8.getBrand(), audiA8.getModel());
-        carType(audiA8);
+        Transport.carType(audiA8);
 
-        diagnostic(
+        Transport.diagnostic(
                 ikarus, pasik, lias, schoolBus,
                 ladaGranta, audiA8, bmwZ8, kiaSportage,
                 kamaz, maz, scania, belaz
@@ -128,61 +128,4 @@ public class Main {
         station.addTransport(audiA8);
         station.runDiagnostic();
     }
-
-    public static void raceTeam(Driver driver) {
-        System.out.println("Водитель " + driver.getFullName() + " управляет автомобилем " + driver.getCar().getBrand() +
-                " " + driver.getCar().getModel() + " и будет участвовать в заезде.");
-    }
-
-    public static void carType(Transport transport) {
-        transport.printType();
-    }
-
-    public static void diagnostic(Transport... transports) {
-        for (Transport transport : transports) {
-            try {
-                diagnostTransport(transport);
-            } catch (RuntimeException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-    }
-
-    public static void diagnostTransport(Transport transport) {
-        if (!transport.passDiagnostic()) {
-            throw new RuntimeException("Автомобиль " + transport.getBrand() + " " + transport.getModel() + " не прошел диагностику");
-        }
-    }
-
-//    public static String getSponsorsName(Set list) {
-//        String sponsorsNames = "";
-//        for (int i = 0; i < list.size(); i++) {
-//            if (list.get(i) != null && i == list.size() - 1) {
-//                Sponsor sponsor = (Sponsor) list.get(i);
-//                sponsorsNames += sponsor.getName();
-//            } else if (list.get(i) != null) {
-//                Sponsor sponsor = (Sponsor) list.get(i);
-//                sponsorsNames += sponsor.getName() + ", ";
-//            }
-//
-//        }
-//        return sponsorsNames;
-//    }
-//    public static String getMechanicsName(Set list) {
-//        String mechanicName = "";
-//        for (int i = 0; i < list.size(); i++) {
-//            if (list.get(i) != null && i == list.size() - 1) {
-//                Mechanic mechanic = (Mechanic) list.get(i);
-//                mechanicName += mechanic.getFullName();
-//            } else if (list.get(i) != null) {
-//                Mechanic mechanic = (Mechanic) list.get(i);
-//                mechanicName += mechanic.getFullName() + ", ";
-//            }
-//
-//        }
-//        return mechanicName;
-//    }
-
 }
-
-
