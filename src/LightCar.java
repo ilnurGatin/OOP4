@@ -1,4 +1,7 @@
+import com.sun.source.doctree.SeeTree;
+
 import java.util.List;
+import java.util.Set;
 
 public class LightCar extends Transport implements Competing {
 
@@ -26,7 +29,7 @@ public class LightCar extends Transport implements Competing {
 
     private BodyType bodyType;
 
-    public LightCar(String brand, String model, float engineVolume, BodyType bodyType, List sponsorList, List<Mechanic> mechanics) {
+    public LightCar(String brand, String model, float engineVolume, BodyType bodyType, Set sponsorList, Set mechanics) {
         super(brand, model, engineVolume, sponsorList, mechanics);
         this.bodyType = bodyType;
     }
